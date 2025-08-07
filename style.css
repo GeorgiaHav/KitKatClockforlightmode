@@ -5,7 +5,7 @@
 }
 :root {
   --hue: 320;
-  --white: #f2f2f2;
+  --blue: #b9d5ef;
   --black: #191919;
   --aspect-ratio: calc(300 / 800);
   --unit: calc((80 / 800) * 1vmin);
@@ -46,7 +46,7 @@ body {
   --size: 134;
   height: calc(var(--size) * var(--unit));
   width: calc(var(--size) * var(--unit));
-  background: var(--white);
+  background: var(--blue);
   position: absolute;
   top: calc(17 * var(--unit));
   border-radius: 50%;
@@ -79,7 +79,7 @@ body {
 }
 .clock__body {
   --size: 200;
-  background: var(--white);
+  background: var(--blue);
   height: calc(var(--size) * var(--unit));
   width: calc(var(--size) * var(--unit));
   position: absolute;
@@ -139,7 +139,7 @@ body {
   --size: calc(20 * var(--unit));
   height: var(--size);
   width: var(--size);
-  background: var(--white);
+  background: var(--blue);
   position: absolute;
   border-radius: 50%;
 }
@@ -166,7 +166,7 @@ body {
   transform: translate(-50%, 0);
 }
 .clock__face {
-  background: var(--white);
+  background: var(--blue);
   position: absolute;
   top: calc(136 * var(--unit));
   left: calc(20 * var(--unit));
@@ -201,7 +201,7 @@ body {
   top: 0;
   height: 50%;
   width: 55%;
-  background: var(--white);
+  background: var(--blue);
 }
 .clock__mouth:before {
   right: 49%;
@@ -274,7 +274,7 @@ body {
 }
 .clock__tail:after {
   content: '';
-  background: var(--white);
+  background: var(--blue);
   position: absolute;
   height: calc(70 * var(--unit));
   width: calc(50 * var(--unit));
