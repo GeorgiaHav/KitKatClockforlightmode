@@ -7,6 +7,7 @@
   --hue: 320;
   --blue: #b9d5ef;
   --black: #191919;
+  --white: #f2f2f2;
   --aspect-ratio: calc(300 / 800);
   --unit: calc((80 / 800) * 1vmin);
   --width: calc(300 * var(--unit));
@@ -46,7 +47,7 @@ body {
   --size: 134;
   height: calc(var(--size) * var(--unit));
   width: calc(var(--size) * var(--unit));
-  background: var(--blue);
+  background: var(--white);
   position: absolute;
   top: calc(17 * var(--unit));
   border-radius: 50%;
