@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 :root {
-  --hue: 223;
+  --wine: #6b2338;
   --blue: #b9d5ef;
   --black: #191919;
   --white: #f2f2f2;
@@ -362,7 +362,7 @@ body {
   --size: calc(20 * var(--unit));
   border-radius: 50%;
   position: absolute;
-  background: hsl(var(--hue), 60%, 60%);
+  background: hsl(var(--wine), 98%, 98%);
   left: 50%;
   top: calc(236 * var(--unit));
   transform: translate(-50%, 0);
@@ -375,7 +375,7 @@ body {
   position: absolute;
   height: 160%;
   width: 160%;
-  background: hsl(var(--hue), 60%, 60%);
+  background: hsl(var(--wine), 98%, 98%);
   top: 50%;
   transform: translate(0, -50%) rotate(calc(var(--rotate, 0) * 1deg));
   -webkit-clip-path: polygon(0 0, 100% 50%, 0 100%);
