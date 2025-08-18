@@ -3,33 +3,46 @@
 *:before {
   box-sizing: border-box;
 }
+
 :root {
   --wine: #6b2338;
   --blue: #b9d5ef;
   --black: #191919;
   --white: #f2f2f2;
+
+  /* Anchor scaling to HEIGHT so width changes don't ripple through layout */
   --aspect-ratio: calc(300 / 800);
-  --unit: calc((80 / 800) * 1vmin);
+  --unit: calc((80 / 800) * 1vh); /* was 1vmin */
+
   --width: calc(300 * var(--unit));
   --height: calc(800 * var(--unit));
 }
+
+/* Background / decorative SVGs:
+   Size from height so changing width doesn't affect --unit-based layout */
 svg {
-  width: 30vmin;
-  height: 80vmin;
+  /* was width: 30vmin; height: 80vmin; */
+  width: auto;
+  height: 80vh;
   position: fixed;
   top: 50%;
 }
+
 svg:nth-of-type(1) {
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0.15;
 }
+
+/* Right-side decorative SVG */
 svg:nth-of-type(2) {
   right: 0;
-  height: 800px;
-  width: 300px;
+  /* was height: 800px; width: 300px; */
+  height: 80vh;
+  width: auto;
   transform: translate(0, -50%);
 }
+
 body {
   min-height: 100vh;
   background: transparent;
@@ -38,11 +51,13 @@ body {
   justify-content: center;
   transform-origin: top center;
 }
+
 .clock {
   height: calc(var(--height));
   width: calc(var(--width));
   position: relative;
 }
+
 .clock__eye {
   --size: 134;
   height: calc(var(--size) * var(--unit));
@@ -78,6 +93,7 @@ body {
 .clock__eye--right:after {
   transform: translate(-50%, -60%);
 }
+
 .clock__body {
   --size: 200;
   background: var(--blue);
@@ -101,6 +117,7 @@ body {
   width: var(--size);
   transform: translate(-50%, -50%);
 }
+
 .clock__dot {
   --size: 10;
   --radius: 90;
@@ -113,6 +130,7 @@ body {
   position: absolute;
   transform: translate(-50%, -50%) rotate(calc(((360 / 12) * var(--index)) * 1deg)) translate(0, calc(var(--radius) * var(--unit)));
 }
+
 .clock__paw {
   --height: 70;
   --width: 80;
@@ -136,6 +154,7 @@ body {
   top: calc(448 * var(--unit));
   right: 0;
 }
+
 .clock__pad {
   --size: calc(20 * var(--unit));
   height: var(--size);
@@ -166,6 +185,7 @@ body {
   left: 50%;
   transform: translate(-50%, 0);
 }
+
 .clock__face {
   background: var(--blue);
   position: absolute;
@@ -175,6 +195,7 @@ body {
   width: calc(260 * var(--unit));
   border-radius: 0 0 50% 50%/0 0 100% 100%;
 }
+
 .clock__nose {
   background: var(--black);
   position: absolute;
@@ -185,6 +206,7 @@ body {
   left: 50%;
   transform: translate(-50%, 0);
 }
+
 .clock__mouth {
   position: absolute;
   height: calc(60 * var(--unit));
@@ -212,6 +234,7 @@ body {
   left: 49%;
   border-radius: 0 0 35% 40%;
 }
+
 .clock__tongue {
   width: 100%;
   height: 100%;
@@ -230,6 +253,7 @@ body {
   left: 50%;
   transform: translate(-45%, 50%);
 }
+
 .clock__whiskers {
   height: 100%;
   width: 100%;
@@ -261,6 +285,7 @@ body {
   width: calc(56 * var(--unit));
   transform: translate(60%, -350%) rotate(15deg);
 }
+
 .clock__tail {
   --swing: 38;
   width: calc(140 * var(--unit));
@@ -287,22 +312,16 @@ body {
   -webkit-clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 100%);
   clip-path: polygon(0 0, 100% 25%, 100% 100%, 0 100%);
 }
+
 @-webkit-keyframes swing {
-  from {
-    transform: translate(-50%, 0) rotate(calc(var(--swing) * -1deg));
-  }
-  to {
-    transform: translate(-50%, 0) rotate(calc(var(--swing) * 1deg));
-  }
+  from { transform: translate(-50%, 0) rotate(calc(var(--swing) * -1deg)); }
+  to   { transform: translate(-50%, 0) rotate(calc(var(--swing) * 1deg)); }
 }
 @keyframes swing {
-  from {
-    transform: translate(-50%, 0) rotate(calc(var(--swing) * -1deg));
-  }
-  to {
-    transform: translate(-50%, 0) rotate(calc(var(--swing) * 1deg));
-  }
+  from { transform: translate(-50%, 0) rotate(calc(var(--swing) * -1deg)); }
+  to   { transform: translate(-50%, 0) rotate(calc(var(--swing) * 1deg)); }
 }
+
 .clock__pupil {
   position: absolute;
   top: 50%;
@@ -327,42 +346,28 @@ body {
           animation: scale 0.5s infinite ease-in-out alternate;
 }
 @-webkit-keyframes scale {
-  0% {
-    transform: translate(-50%, -50%) scale(0.6);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
+  0% { transform: translate(-50%, -50%) scale(0.6); }
+  100% { transform: translate(-50%, -50%) scale(1); }
 }
 @keyframes scale {
-  0% {
-    transform: translate(-50%, -50%) scale(0.6);
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-  }
+  0% { transform: translate(-50%, -50%) scale(0.6); }
+  100% { transform: translate(-50%, -50%) scale(1); }
 }
 @-webkit-keyframes shift {
-  0% {
-    transform: translate(-50%, -50%) translate(-250%, 0);
-  }
-  100% {
-    transform: translate(-50%, -50%) translate(250%, 0);
-  }
+  0% { transform: translate(-50%, -50%) translate(-250%, 0); }
+  100% { transform: translate(-50%, -50%) translate(250%, 0); }
 }
 @keyframes shift {
-  0% {
-    transform: translate(-50%, -50%) translate(-250%, 0);
-  }
-  100% {
-    transform: translate(-50%, -50%) translate(250%, 0);
-  }
+  0% { transform: translate(-50%, -50%) translate(-250%, 0); }
+  100% { transform: translate(-50%, -50%) translate(250%, 0); }
 }
+
+/* Bowtie: fixed solid colour */
 .clock__bowtie {
   --size: calc(20 * var(--unit));
   border-radius: 50%;
   position: absolute;
-  background: hsl(var(--wine), 98%, 98%);
+  background: #e65a31;
   left: 50%;
   top: calc(236 * var(--unit));
   transform: translate(-50%, 0);
@@ -375,7 +380,7 @@ body {
   position: absolute;
   height: 160%;
   width: 160%;
-  background: hsl(var(--wine), 98%, 98%);
+  background: #e65a31;
   top: 50%;
   transform: translate(0, -50%) rotate(calc(var(--rotate, 0) * 1deg));
   -webkit-clip-path: polygon(0 0, 100% 50%, 0 100%);
@@ -388,6 +393,7 @@ body {
 .clock__bowtie:before {
   right: 15%;
 }
+
 .clock__hand {
   position: absolute;
   width: calc(5 * var(--unit));
@@ -424,18 +430,10 @@ body {
           animation: time calc(var(--seconds) * 1s) calc(var(--hours-delay) * -1s) infinite linear;
 }
 @-webkit-keyframes time {
-  0% {
-    transform: translate(-50%, -100%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -100%) rotate(360deg);
-  }
+  0% { transform: translate(-50%, -100%) rotate(0deg); }
+  100% { transform: translate(-50%, -100%) rotate(360deg); }
 }
 @keyframes time {
-  0% {
-    transform: translate(-50%, -100%) rotate(0deg);
-  }
-  100% {
-    transform: translate(-50%, -100%) rotate(360deg);
-  }
+  0% { transform: translate(-50%, -100%) rotate(0deg); }
+  100% { transform: translate(-50%, -100%) rotate(360deg); }
 }
