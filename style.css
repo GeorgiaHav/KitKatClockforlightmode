@@ -8,13 +8,13 @@
   --blue: #b9d5ef;
   --black: #191919;
   --white: #f2f2f2;
-  --aspect-ratio: calc(300 / 800);
+  --aspect-ratio: calc(200 / 800);
   --unit: calc((80 / 800) * 1vmin);
-  --width: calc(300 * var(--unit));
+  --width: calc(200 * var(--unit));
   --height: calc(800 * var(--unit));
 }
 svg {
-  width: 30vmin;
+  width: 20vmin;
   height: 80vmin;
   position: fixed;
   top: 50%;
@@ -27,7 +27,7 @@ svg:nth-of-type(1) {
 svg:nth-of-type(2) {
   right: 0;
   height: 800px;
-  width: 300px;
+  width: 200px;
   transform: translate(0, -50%);
 }
 body {
